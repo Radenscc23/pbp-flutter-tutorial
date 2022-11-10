@@ -249,7 +249,6 @@ class _MyFormPageState extends State<MyFormPage> {
                                 shrinkWrap: true,
                                 children: <Widget>[
                                   Center(child: const Text('Informasi Data')),
-                                  SizedBox(height: 20),
                                   // TODO: Munculkan informasi yang didapat dari form
                                   Column(
                                     children: [
@@ -257,10 +256,12 @@ class _MyFormPageState extends State<MyFormPage> {
                                       Text('Jenjang : $jenjang'),
                                       Text('Umur : ${umur.toInt()}'),
                                       Text('Kelas PBP : $kelasPBP'),
-                                      Text('Practice Mode : $_nilaiSwitch'),
+                                      if(_nilaiSwitch)
+                                        const Text('\n Practice Mode: Active')
+                                      else
+                                        const Text('\n Practice Mode: Inactive'),
                                     ],
                                   ),
-                                  SizedBox(height: 20),
                                   TextButton(
                                     onPressed: () {
                                       Navigator.pop(context);
